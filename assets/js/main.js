@@ -310,102 +310,183 @@
   new PureCounter();
 })();
 
-document
-  .getElementById("submitAssignmentButton")
-  .addEventListener("click", function () {
-    Swal.fire({
-      title: "Pilih Metode Submit",
-      text: "Silakan pilih salah satu metode untuk mengumpulkan tugas Anda:",
-      icon: "info",
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: "Via Google Form",
-      denyButtonText: "Via WhatsApp",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Arahkan ke Google Form
-        window.open("https://forms.gle/your-google-form-link", "_blank");
-      } else if (result.isDenied) {
-        // Arahkan ke WhatsApp
-        const whatsappLink =
-          "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20submit%20tugas%20Project%20Perkenalan.%20Berikut%20detailnya%3A";
-        window.open(whatsappLink, "_blank");
-      }
-    });
-  });
-
 // document
 //   .getElementById("submitAssignmentButton")
 //   .addEventListener("click", function () {
 //     Swal.fire({
-//       title: "Pilih Assignment",
-//       html: `
-//         <div style="text-align: left;">
-//           <h4>Assignment 1: Web Perkenalan</h4>
-//           <p>Buatlah website perkenalan seperti contoh web ini, lalu deploy ke Vercel via GitHub.</p>
-//           <button class="swal2-confirm swal2-styled" id="assignment1Button" style="margin-bottom: 10px;">Lihat Detail</button>
-          
-//           <h4>Assignment 2: Laravel Project</h4>
-//           <p>Buat project Laravel 11 dengan satu controller dan tampilkan halaman index.</p>
-//           <button class="swal2-confirm swal2-styled" id="assignment2Button" style="margin-bottom: 10px;">Lihat Detail</button>
-          
-//           <h4>Assignment 3: Install Debian/Ubuntu</h4>
-//           <p>Instal Debian/Ubuntu di VirtualBox, lalu buat user biasa dan sudo.</p>
-//           <button class="swal2-confirm swal2-styled" id="assignment3Button" style="margin-bottom: 10px;">Lihat Detail</button>
-          
-//           <h4>Assignment 4: Shortcut MS Excel</h4>
-//           <p>Hafalkan 10 shortcut penting di MS Excel atau Google Sheets.</p>
-//           <button class="swal2-confirm swal2-styled" id="assignment4Button" style="margin-bottom: 10px;">Lihat Detail</button>
-//         </div>
-//       `,
-//       showConfirmButton: false,
+//       title: "Pilih Metode Submit",
+//       text: "Silakan pilih salah satu metode untuk mengumpulkan tugas Anda:",
+//       icon: "info",
+//       showDenyButton: true,
+//       showCancelButton: true,
+//       confirmButtonText: "Via Google Form",
+//       denyButtonText: "Via WhatsApp",
+//     }).then((result) => {
+//       if (result.isConfirmed) {
+//         // Arahkan ke Google Form
+//         window.open("https://forms.gle/your-google-form-link", "_blank");
+//       } else if (result.isDenied) {
+//         // Arahkan ke WhatsApp
+//         const whatsappLink =
+//           "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20submit%20tugas%20Project%20Perkenalan.%20Berikut%20detailnya%3A";
+//         window.open(whatsappLink, "_blank");
+//       }
 //     });
-
-//     // Assignment 1 detail
-//     document
-//       .getElementById("assignment1Button")
-//       .addEventListener("click", function () {
-//         Swal.fire({
-//           title: "Assignment 1: Web Perkenalan",
-//           text: "Buatlah website perkenalan seperti contoh ini, lalu deploy ke Vercel via GitHub. Berikan URL live dan screenshot proses deploy.",
-//           icon: "info",
-//           confirmButtonText: "OK",
-//         });
-//       });
-
-//     // Assignment 2 detail
-//     document
-//       .getElementById("assignment2Button")
-//       .addEventListener("click", function () {
-//         Swal.fire({
-//           title: "Assignment 2: Laravel Project",
-//           text: "Buat project Laravel 11, buat controller dan view, konfigurasikan route di web.php, dan tampilkan halaman index.",
-//           icon: "info",
-//           confirmButtonText: "OK",
-//         });
-//       });
-
-//     // Assignment 3 detail
-//     document
-//       .getElementById("assignment3Button")
-//       .addEventListener("click", function () {
-//         Swal.fire({
-//           title: "Assignment 3: Install Debian/Ubuntu",
-//           text: "Instal Debian/Ubuntu di VirtualBox. Buat user biasa dan user sudo, sertakan 5 screenshot (instalasi, hostname, user biasa, user sudo, tampilan awal).",
-//           icon: "info",
-//           confirmButtonText: "OK",
-//         });
-//       });
-
-//     // Assignment 4 detail
-//     document
-//       .getElementById("assignment4Button")
-//       .addEventListener("click", function () {
-//         Swal.fire({
-//           title: "Assignment 4: Shortcut MS Excel",
-//           text: "Hafalkan 10 shortcut penting di MS Excel atau Google Sheets. Sesi hafalan akan diuji langsung.",
-//           icon: "info",
-//           confirmButtonText: "OK",
-//         });
-//       });
 //   });
+
+// Assignment 1
+document
+  .getElementById("assignment1Button")
+  .addEventListener("click", function () {
+    Swal.fire({
+      title: "Assignment 1 <br><br><strong>Web Perkenalan</strong>",
+
+      html: `
+        <p>Buatlah website perkenalan seperti contoh web ini, silakan gunakan template bootstrap atau boleh manual menggunakan CSS Native, lalu deploy ke <strong>Vercel</strong> via GitHub.</p>
+        <ul style="text-align: left;">
+          <li>Buat repository di GitHub dan push source code.</li>
+          <li>Deploy website menggunakan Vercel.</li>
+          <li>Berikan <strong>URL live website</strong> yang berhasil di deploy 😉.</li>
+        </ul>
+      `,
+      icon: "info",
+      confirmButtonText: "Mengerti!",
+    });
+  });
+
+// Assignment 2
+document
+  .getElementById("assignment2Button")
+  .addEventListener("click", function () {
+    Swal.fire({
+      title: "Assignment 2 <br><br><strong>Laravel Project</strong>",
+      html: `
+        <p>Buat project menggunakan Laravel 11 dengan satu controller yang menampilkan halaman index.</p>
+        <ul style="text-align: left;">
+          <li>Buat controller dan view.</li>
+          <li>Konfigurasikan route di <code>web.php</code>.</li>
+          <li>Sertakan 5 screenshot: Controller, Views, web.php, index.blade.php, dan tampilan browser.</li>
+          <li>Kirimkan Bukti Screenshot didalam <strong>folder Google Drive</strong>, lalu submit link folder yang sudah <strong>di share secara public</strong> 😊.</li>
+        </ul>
+      `,
+      icon: "info",
+      confirmButtonText: "Siap!",
+    });
+  });
+
+// Assignment 3
+document
+  .getElementById("assignment3Button")
+  .addEventListener("click", function () {
+    Swal.fire({
+      title: "Assignment 3 <br><br><strong>Install Debian/Ubuntu</strong>",
+
+      html: `
+        <p>Instal Debian atau Ubuntu pada VirtualBox, lalu buat 2 user (biasa dan sudo).</p>
+        <ul style="text-align: left;">
+          <li>Screenshot instalasi OS.</li>
+          <li>Screenshot hostname server kamu.</li>
+          <li>Screenshot user biasa, user sudo, dan tampilan desktop / CLI.</li>
+          <li>Kirimkan Bukti Screenshot didalam <strong>folder Google Drive</strong>, lalu submit link folder yang sudah <strong>di share secara public</strong> 😊.</li>
+        </ul>
+      `,
+      icon: "info",
+      confirmButtonText: "Okay!",
+    });
+  });
+
+// Assignment 4
+document
+  .getElementById("assignment4Button")
+  .addEventListener("click", function () {
+    Swal.fire({
+      title:
+        "Assignment 4 <br><strong>Shortcut MS Excel/Google Sheets</strong>",
+
+      html: `
+        <p>Hafalkan 10 shortcut penting di MS Excel atau Google Sheets (khusus Non-FTI).</p>
+        <ul style="text-align: left;">
+          <li>Buat daftar shortcut berikut fungsi dan kombinasi tombolnya.</li>
+          <li>Sesi hafalan akan diuji langsung 👍.</li>
+        </ul>
+      `,
+      icon: "info",
+      confirmButtonText: "Baik!",
+    });
+  });
+
+document
+  .getElementById("submitAssignment")
+  .addEventListener("click", function () {
+    const nim = document.getElementById("nim").value.trim();
+    const nama = document.getElementById("nama").value.trim();
+    const fakultasProdi = document.getElementById("fakultasProdi").value.trim();
+    const assignment = document.getElementById("assignment").value.trim();
+    const linkAttachment = document
+      .getElementById("linkAttachment")
+      .value.trim();
+
+    // Input Validation
+    if (!nim || !nama || !fakultasProdi || !assignment || !linkAttachment) {
+      Swal.fire({
+        title: "Error!",
+        text: "Harap isi semua kolom sebelum mengirim.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    const data = {
+      nim: nim,
+      nama: nama,
+      fakultasProdi: fakultasProdi,
+      assignment: assignment,
+      linkAttachment: linkAttachment,
+    };
+
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbzOBDzjAMm3d0hDPktBLIzPXls67tGIqJpP4YsFiPbJtH5wqgwChLaVVvMkZPHmru2d/exec";
+
+    Swal.fire({
+      title: "Mengirim...",
+      text: "Data sedang dikirim.",
+      icon: "info",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
+    fetch(scriptURL, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        Swal.fire(
+          "Berhasil!",
+          "Data berhasil dikirim, konfirmasi ke<br> <strong>WhatsApp : </strong>wa.me/6287778315008",
+          "success"
+        );
+
+        document.getElementById("submitAssignmentForm").reset();
+
+        const modalElement = document.getElementById("submitAssignmentModal");
+        const modal = bootstrap.Modal.getInstance(modalElement); // Ambil instance modal Bootstrap
+        modal.hide();
+      })
+      .catch((error) => {
+        console.error(error);
+        Swal.fire({
+          title: "Error!",
+          text: `Kesalahan: ${error.message}`,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      });
+  });
