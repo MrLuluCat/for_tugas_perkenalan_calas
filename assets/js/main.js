@@ -320,15 +320,18 @@ document
       showDenyButton: true,
       showCancelButton: true,
       confirmButtonText: "Via Google Form",
-      denyButtonText: "Via WhatsApp",
+      denyButtonText: "Konfirmasi WhatsApp",
     }).then((result) => {
       if (result.isConfirmed) {
         // Arahkan ke Google Form
-        window.open("https://forms.gle/your-google-form-link", "_blank");
+        window.open(
+          "https://docs.google.com/forms/d/14Q06-BAIttoMwIJrr0F5q68BeFsCrxq8QaiChTqagk0/edit",
+          "_blank"
+        );
       } else if (result.isDenied) {
         // Arahkan ke WhatsApp
         const whatsappLink =
-          "https://wa.me/6287778315008?text=Halo,%20saya%20ingin%20submit%20tugas%20Project%20Perkenalan.%20Berikut%20detailnya%3A";
+          "https://wa.me/6287778315008?text=Halo,%20Perkenalkan%20saya%20....,%20ingin%20submit%20tugas%20Project%20Perkenalan.%20Berikut%20detailnya%3A";
         window.open(whatsappLink, "_blank");
       }
     });

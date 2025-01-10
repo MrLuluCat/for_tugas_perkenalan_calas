@@ -5,10 +5,10 @@ document
       title: "Assignment 1 <br><br><strong>Web Perkenalan</strong>",
 
       html: `
-        <p>Buatlah website perkenalan seperti contoh web ini, silakan gunakan template bootstrap atau boleh manual menggunakan CSS Native, lalu deploy ke <strong>Vercel</strong> via GitHub.</p>
+        <p>Buatlah website perkenalan sederhana, boleh menggunakan template bootstrap seperti ni atau membuat manual menggunakan HTML + CSS Native, lalu deploy ke <strong>Vercel</strong> via GitHub.</p>
         <ul style="text-align: left;">
-          <li>Buat repository di GitHub dan push source code.</li>
-          <li>Deploy website menggunakan Vercel.</li>
+          <li>Buat repository di GitHub dan push source code.*</li>
+          <li>Deploy website ke <a href="https://vercel.com" style="color: black; text-decoration: underline;" target="_blank">Vercel.com.</a></li>
           <li>Berikan <strong>URL live website</strong> yang berhasil di deploy 😉.</li>
         </ul>
       `,
