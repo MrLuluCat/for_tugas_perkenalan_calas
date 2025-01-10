@@ -8,6 +8,9 @@
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
@@ -34,8 +37,7 @@
     />
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+
   </head>
 
   <body>
@@ -59,8 +61,6 @@
               <a
                 class="getstarted scrollto"
                 href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#submitAssignmentModal"
                 id="submitAssignmentButton"
                 >Submit Assignment</a
               >
@@ -94,11 +94,6 @@
                   <span>Get Started</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
-
-                <!-- <a class="btn-get-started d-inline-flex align-items-center justify-content-center align-self-center" id="getTugasButton">
-                <span>GET Tugas</span>
-                <i class="bi bi-arrow-right"></i>
-              </a> -->
               </div>
             </div>
           </div>
@@ -200,23 +195,6 @@
 
       <!-- ======= Footer ======= -->
       <footer id="footer" class="footer">
-        <!-- <div class="footer-newsletter">
-
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12 text-center">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-          </div>
-          <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
         <div class="footer-top">
           <div class="container">
             <div class="row gy-4">
@@ -305,7 +283,7 @@
                   <a href="https://labict.budiluhur.ac.id/" target="_blank"
                     >labict.budiluhur.ac.id</a
                   ><br />
-                  <!-- <strong>WhatsApp :</strong> <a href="http://wa.me/6287787574869" target="_blank">+62 877-8757-4869</a><br> -->
+                  <!-- <strong>WhatsApp :</strong> <a href="http://wa.me/6287778315008" target="_blank">+62 8777-831-5008</a><br> -->
                 </p>
               </div>
             </div>
@@ -333,12 +311,13 @@
       ></a>
 
       <!-- Modal Submit Assignment -->
-      <div
+      <!-- <div
         class="modal fade"
         id="submitAssignmentModal"
         tabindex="-1"
         aria-labelledby="submitAssignmentModalLabel"
-        aria-hidden="true"
+        aria-hidden="false"
+        aria-modal="true"
       >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -364,6 +343,7 @@
                     placeholder="Masukkan NIM"
                     maxlength="10"
                     required
+                    autofocus
                   />
                 </div>
                 <div class="mb-3">
@@ -426,7 +406,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Vendor JS Files -->
       <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -440,6 +420,7 @@
 
       <!-- Template Main JS File -->
       <script src="assets/js/main.js"></script>
+      <script src="assignment.js"></script>
     </main>
   </body>
 </html>

@@ -16,7 +16,7 @@ Welcome to the **Project Perkenalan Calas** repository! This is a web-based assi
 ## 🚀 How to Use
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/project-perkenalan-calas.git
+git clone https://github.com/MrLuluCat/for_tugas_perkenalan_calas.git
 ```
 ---
 
@@ -64,7 +64,7 @@ git clone https://github.com/yourusername/project-perkenalan-calas.git
 1. Fill in the form with the following details:
    - **NIM**
    - **Name**
-   - **Faculty/Program**
+   - **Faculty**
    - **Assignment Type**
    - **Attachment Link** (Google Drive or Vercel)
 
@@ -77,10 +77,10 @@ git clone https://github.com/yourusername/project-perkenalan-calas.git
 
 ```plaintext
 📂 assets/
-   ├── 📂 css/           # Custom and vendor CSS files
-   ├── 📂 img/           # Image assets
-   ├── 📂 vendor/        # Bootstrap, Swiper, AOS, and other libraries
-   ├── 📂 js/            # Custom JavaScript
+   ├── 📂 css/            # Custom and vendor CSS files
+   ├── 📂 img/            # Image assets
+   ├── 📂 vendor/         # Bootstrap, Swiper, AOS, and other libraries
+   ├── 📂 js/             # Custom JavaScript
 📂 index.html             # Main HTML file
 📂 README.md              # Project documentation
 ```

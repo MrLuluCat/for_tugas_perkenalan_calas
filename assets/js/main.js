@@ -310,183 +310,134 @@
   new PureCounter();
 })();
 
+document
+  .getElementById("submitAssignmentButton")
+  .addEventListener("click", function () {
+    Swal.fire({
+      title: "Pilih Metode Submit",
+      text: "Silakan pilih salah satu metode untuk mengumpulkan tugas Anda:",
+      icon: "info",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Via Google Form",
+      denyButtonText: "Via WhatsApp",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Arahkan ke Google Form
+        window.open("https://forms.gle/your-google-form-link", "_blank");
+      } else if (result.isDenied) {
+        // Arahkan ke WhatsApp
+        const whatsappLink =
+          "https://wa.me/6287778315008?text=Halo,%20saya%20ingin%20submit%20tugas%20Project%20Perkenalan.%20Berikut%20detailnya%3A";
+        window.open(whatsappLink, "_blank");
+      }
+    });
+  });
+
 // document
-//   .getElementById("submitAssignmentButton")
+//   .getElementById("submitAssignment")
 //   .addEventListener("click", function () {
+//     // Ambil nilai input
+//     const nim = document.getElementById("nim").value.trim();
+//     const nama = document.getElementById("nama").value.trim();
+//     const fakultasProdi = document.getElementById("fakultasProdi").value.trim();
+//     const assignment = document.getElementById("assignment").value.trim();
+//     const linkAttachment = document
+//       .getElementById("linkAttachment")
+//       .value.trim();
+
+//     // Validasi input
+//     if (!nim || !nama || !fakultasProdi || !assignment || !linkAttachment) {
+//       Swal.fire({
+//         title: "Error!",
+//         text: "Harap isi semua kolom sebelum mengirim.",
+//         icon: "error",
+//         confirmButtonText: "OK",
+//       });
+//       return;
+//     }
+
+//     // Data yang akan dikirim
+//     const data = {
+//       nim: nim,
+//       nama: nama,
+//       fakultasProdi: fakultasProdi,
+//       assignment: assignment,
+//       linkAttachment: linkAttachment,
+//     };
+
+//     // URL Google Apps Script
+//     const scriptURL =
+//       "https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbzOBDzjAMm3d0hDPktBLIzPXls67tGIqJpP4YsFiPbJtH5wqgwChLaVVvMkZPHmru2d/exec";
+
+//     // Tampilkan loading
 //     Swal.fire({
-//       title: "Pilih Metode Submit",
-//       text: "Silakan pilih salah satu metode untuk mengumpulkan tugas Anda:",
+//       title: "Mengirim...",
+//       text: "Data sedang dikirim ke Spreadsheet.",
 //       icon: "info",
-//       showDenyButton: true,
-//       showCancelButton: true,
-//       confirmButtonText: "Via Google Form",
-//       denyButtonText: "Via WhatsApp",
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         // Arahkan ke Google Form
-//         window.open("https://forms.gle/your-google-form-link", "_blank");
-//       } else if (result.isDenied) {
-//         // Arahkan ke WhatsApp
-//         const whatsappLink =
-//           "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20submit%20tugas%20Project%20Perkenalan.%20Berikut%20detailnya%3A";
-//         window.open(whatsappLink, "_blank");
-//       }
+//       allowOutsideClick: false,
+//       didOpen: () => {
+//         Swal.showLoading();
+//       },
 //     });
+
+//     // Kirim data menggunakan fetch
+//     fetch(scriptURL, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(data),
+//     })
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error("Gagal mengirim data. Cek respons server.");
+//         }
+//         return response.json(); // Parse respons menjadi JSON
+//       })
+//       .then((json) => {
+//         if (json.status === "success") {
+//           Swal.fire({
+//             title: "Berhasil!",
+//             text: "Data berhasil dikirim, konfirmasi ke WhatsApp.",
+//             icon: "success",
+//             confirmButtonText: "OK",
+//           });
+
+//           // Reset form setelah sukses
+//           document.getElementById("submitAssignmentForm").reset();
+
+//           // Tutup modal
+//           const modalElement = document.getElementById("submitAssignmentModal");
+//           const modal = bootstrap.Modal.getInstance(modalElement);
+//           modal.hide();
+//         } else if (
+//           json.status === "Failed" &&
+//           json.message === "NIM sudah terdaftar."
+//         ) {
+//           Swal.fire({
+//             title: "Error!",
+//             text: "NIM sudah terdaftar. Kamu Sudah Mengumpulkan.",
+//             icon: "error",
+//             confirmButtonText: "OK",
+//           });
+//         } else {
+//           Swal.fire({
+//             title: "Gagal!",
+//             text: "Terjadi kesalahan pada server.",
+//             icon: "error",
+//             confirmButtonText: "OK",
+//           });
+//         }
+//       })
+//       .catch((error) => {
+//         Swal.fire({
+//           title: "Error!",
+//           text: `Kesalahan: ${error.message}`,
+//           icon: "error",
+//           confirmButtonText: "OK",
+//         });
+//       });
 //   });
 
-// Assignment 1
-document
-  .getElementById("assignment1Button")
-  .addEventListener("click", function () {
-    Swal.fire({
-      title: "Assignment 1 <br><br><strong>Web Perkenalan</strong>",
-
-      html: `
-        <p>Buatlah website perkenalan seperti contoh web ini, silakan gunakan template bootstrap atau boleh manual menggunakan CSS Native, lalu deploy ke <strong>Vercel</strong> via GitHub.</p>
-        <ul style="text-align: left;">
-          <li>Buat repository di GitHub dan push source code.</li>
-          <li>Deploy website menggunakan Vercel.</li>
-          <li>Berikan <strong>URL live website</strong> yang berhasil di deploy 😉.</li>
-        </ul>
-      `,
-      icon: "info",
-      confirmButtonText: "Mengerti!",
-    });
-  });
-
-// Assignment 2
-document
-  .getElementById("assignment2Button")
-  .addEventListener("click", function () {
-    Swal.fire({
-      title: "Assignment 2 <br><br><strong>Laravel Project</strong>",
-      html: `
-        <p>Buat project menggunakan Laravel 11 dengan satu controller yang menampilkan halaman index.</p>
-        <ul style="text-align: left;">
-          <li>Buat controller dan view.</li>
-          <li>Konfigurasikan route di <code>web.php</code>.</li>
-          <li>Sertakan 5 screenshot: Controller, Views, web.php, index.blade.php, dan tampilan browser.</li>
-          <li>Kirimkan Bukti Screenshot didalam <strong>folder Google Drive</strong>, lalu submit link folder yang sudah <strong>di share secara public</strong> 😊.</li>
-        </ul>
-      `,
-      icon: "info",
-      confirmButtonText: "Siap!",
-    });
-  });
-
-// Assignment 3
-document
-  .getElementById("assignment3Button")
-  .addEventListener("click", function () {
-    Swal.fire({
-      title: "Assignment 3 <br><br><strong>Install Debian/Ubuntu</strong>",
-
-      html: `
-        <p>Instal Debian atau Ubuntu pada VirtualBox, lalu buat 2 user (biasa dan sudo).</p>
-        <ul style="text-align: left;">
-          <li>Screenshot instalasi OS.</li>
-          <li>Screenshot hostname server kamu.</li>
-          <li>Screenshot user biasa, user sudo, dan tampilan desktop / CLI.</li>
-          <li>Kirimkan Bukti Screenshot didalam <strong>folder Google Drive</strong>, lalu submit link folder yang sudah <strong>di share secara public</strong> 😊.</li>
-        </ul>
-      `,
-      icon: "info",
-      confirmButtonText: "Okay!",
-    });
-  });
-
-// Assignment 4
-document
-  .getElementById("assignment4Button")
-  .addEventListener("click", function () {
-    Swal.fire({
-      title:
-        "Assignment 4 <br><strong>Shortcut MS Excel/Google Sheets</strong>",
-
-      html: `
-        <p>Hafalkan 10 shortcut penting di MS Excel atau Google Sheets (khusus Non-FTI).</p>
-        <ul style="text-align: left;">
-          <li>Buat daftar shortcut berikut fungsi dan kombinasi tombolnya.</li>
-          <li>Sesi hafalan akan diuji langsung 👍.</li>
-        </ul>
-      `,
-      icon: "info",
-      confirmButtonText: "Baik!",
-    });
-  });
-
-document
-  .getElementById("submitAssignment")
-  .addEventListener("click", function () {
-    const nim = document.getElementById("nim").value.trim();
-    const nama = document.getElementById("nama").value.trim();
-    const fakultasProdi = document.getElementById("fakultasProdi").value.trim();
-    const assignment = document.getElementById("assignment").value.trim();
-    const linkAttachment = document
-      .getElementById("linkAttachment")
-      .value.trim();
-
-    // Input Validation
-    if (!nim || !nama || !fakultasProdi || !assignment || !linkAttachment) {
-      Swal.fire({
-        title: "Error!",
-        text: "Harap isi semua kolom sebelum mengirim.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-      return;
-    }
-
-    const data = {
-      nim: nim,
-      nama: nama,
-      fakultasProdi: fakultasProdi,
-      assignment: assignment,
-      linkAttachment: linkAttachment,
-    };
-
-    const scriptURL =
-      "https://script.google.com/macros/s/AKfycbzOBDzjAMm3d0hDPktBLIzPXls67tGIqJpP4YsFiPbJtH5wqgwChLaVVvMkZPHmru2d/exec";
-
-    Swal.fire({
-      title: "Mengirim...",
-      text: "Data sedang dikirim.",
-      icon: "info",
-      allowOutsideClick: false,
-      didOpen: () => {
-        Swal.showLoading();
-      },
-    });
-
-    fetch(scriptURL, {
-      method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        Swal.fire(
-          "Berhasil!",
-          "Data berhasil dikirim, konfirmasi ke<br> <strong>WhatsApp : </strong>wa.me/6287778315008",
-          "success"
-        );
-
-        document.getElementById("submitAssignmentForm").reset();
-
-        const modalElement = document.getElementById("submitAssignmentModal");
-        const modal = bootstrap.Modal.getInstance(modalElement); // Ambil instance modal Bootstrap
-        modal.hide();
-      })
-      .catch((error) => {
-        console.error(error);
-        Swal.fire({
-          title: "Error!",
-          text: `Kesalahan: ${error.message}`,
-          icon: "error",
-          confirmButtonText: "OK",
-        });
-      });
-  });
+// "Data berhasil dikirim, konfirmasi ke<br> <strong>WhatsApp : </strong>wa.me/6287778315008",
